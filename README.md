@@ -7,7 +7,7 @@
 2. Docker Engine 
 3. Docker-compose 
 
-
+![Alt text](/images/docker_compose_infra_final.jpg?raw=true "Title")
 The project contains four different components:
 1. Nginx Server
 2. Application Server
