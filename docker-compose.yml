@@ -1,0 +1,109 @@
+version: '3.8'
+
+services:
+    nginx_server:
+        image: riteshsoni296/nginx_server:latest
+        depends_on:
+            - tomcat_application_1
+            - tomcat_application_2
+        restart: always
+        ports:
+            - "80:80"
+        environment:
+            NGINX_PORT: "80"
+            APPLICATION_SERVER_1: "tomcat_application_1"
+            APPLICATION_SERVER_2: "tomcat_application_2"
+        volumes:
+            - logs_nginx:/var/log/nginx
+        networks:
+            - application_external_network
+            - application_internal_network
+    
+    tomcat_application_1:
+        image: tomcat:latest
+        ports:
+            - "8080:8080"
+            - "8009:8009"
+        depends_on:
+            - nfs_server
+        restart: always
+        volumes:
+            - logs_tomcat_application1:/usr/local/tomcat/logs
+            - application_code:/usr/local/tomcat/webapps
+        networks:
+            - application_internal_network
+
+    tomcat_application_2:
+        image: tomcat:latest
+        ports:
+            - "8080:8080"
+            - "8009:8009"
+        depends_on:
+            - nfs_server
+        restart: always
+        volumes:
+            - logs_tomcat_application2:/usr/local/tomcat/logs
+            - application_code:/usr/local/tomcat/webapps
+        networks:
+            - application_internal_network
+
+
+    nfs_server:
+        image: riteshsoni296/nfs_server:latest 
+        privileged: "true"        
+        volumes:
+            - nfs_storage:/nfsshare
+        restart: always
+        environment:
+            SHARED_DIRECTORY: /nfsshare
+            SHARED_DIRECTORY_2: /nfsshare/apps
+            SYNC: "true"
+        networks:
+            application_internal_network:
+                ipv4_address: 10.150.20.12
+        healthcheck:
+            test: ["CMD", "netstat", "-tnlp", "|grep", "2049"]
+            interval: 60s
+            timeout: 10s
+            retries: 5
+
+networks:
+    application_external_network:
+        driver: bridge
+        driver_opts:
+            com.docker.network.enable_ipv6: "false"
+        ipam:
+            driver: default
+            config:
+                - subnet: "10.140.20.0/24"
+    
+    # internal secured for Applications Network 
+    application_internal_network:
+        driver: bridge
+        internal: "true"
+        driver_opts:
+            com.docker.network.enable_ipv6: "false"
+        ipam:
+            driver: default
+            config:
+                - subnet: "10.150.20.0/24"
+
+volumes:
+    # Volume for Java Application Code
+    application_code:
+        driver: local
+        driver_opts:
+            type: "nfs4"
+            o: "addr=10.150.20.12,rw"
+            device: ":/apps"
+    logs_nginx:
+        driver: local
+    
+    logs_tomcat_application1:
+        driver: local
+
+    logs_tomcat_application2:
+        driver: local
+
+    nfs_storage:
+        driver: local
