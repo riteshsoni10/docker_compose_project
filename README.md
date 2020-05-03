@@ -1,15 +1,18 @@
 # Docker Compose Project
 ###### The Project Mainly Focuses on Infrastructure
 
+<p align="center">
+  <img src="/images/docker_compose_infra_final.jpg" width="650" title="Infrastructure Diagram">
+  <br>
+  <em>Fig.: Project Infrastructure Diagram </em>
+</p>
+
 
 ### Pre-requisites:
 1. OS: Redhat Enterprise  Linix 8 or Centos8
 2. Docker Engine 
 3. Docker-compose 
 
-<p align="center">
-  <img src="/images/docker_compose_infra_final.jpg" width="650" title="hover text">
-</p>
 
 The project contains four different components:
 1. Nginx Server
