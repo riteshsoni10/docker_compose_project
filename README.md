@@ -56,6 +56,21 @@ The containers depends on Mongo DB Database i.e mongo_db_server for GET API call
 
 MongoDB version 4.2.2 container image is used to launch the containers with some customisation fo the applications. The database server is launched  in seperate network to keep the data secure from the outside world.
 
+The database network is secured from outside internet access by initialising the internal paramter in networks.
+
+```
+networks:
+    database_internal_network:
+        driver: bridge
+        internal: "true"
+        driver_opts:
+            com.docker.network.enable_ipv6: "false"
+        ipam:
+            driver: default
+            config:
+                - subnet: "10.120.20.0/24"
+```
+
 The `Environment` variables that are passed i.e:
 
 a. MONGO_INITDB_ROOT_USERNAME:
@@ -80,7 +95,45 @@ e. MONGO_INITDB_DATABASE:
         
 #### NFS Server
 
-The three `Environment` variables that are to be passed i.e:
+The NFS Server storage is used to share the /apps volume or application_code volume with application containers.
+
+Docker Compose file to create a nfs volume
+
+```
+volumes:
+    # Volume for Java Application Code
+    application_code:
+        driver: local
+        driver_opts:
+            type: "nfs4"
+            o: "addr=10.150.20.12,rw"
+            device: ":/apps"
+```
+
+Here,
+    `addr` is NFS Server IP. It can be NFS Server IP or NFS Server DNS name.
+    `device` is configured as /apps instead of /nfsshare/apps, in NFS version 4 due to setting of `fsuid=0` in exports file in NFS Server, the shared volume /nfsshare can be mounted as /.
+    
+HealthCheck is configured to enable of NFS Server container to start and ready first before application containers.
+
+```
+    healthcheck:
+            test: ["CMD", "netstat", "-tnlp", "|grep", "2049"]
+            interval: 60s
+            timeout: 10s
+            retries: 5
+```
+Here,
+    `test` paramter is configured to check the availability of the NFS server till `interval` seconds. 
+    If the request does not receives any response between `timeout` seconds, the service is marked as unhealthy.
+    
+The NFS Server is executed as root user to run some priviledged commands i.e mount and writinf mounts in fstab file. It is achieved in docker compose by initialising the priviledged flag as true
+
+```
+        privileged: "true"
+```
+    
+The `Environment` variables that are to be passed i.e:
 
 a. SHARED_DIRECTORY and SHARED_DIRECTORY_2
 
