@@ -1,6 +1,5 @@
 # Docker Compose Project
-###### The Project Mainly Focuses on Infrastructure
-> Source: LinuxWorld Informatics Pvt Ltd. Jaipur
+##### The Project Mainly Focuses on Infrastructure
 
 <p align="center">
   <img src="/images/docker_compose_infra_final.jpg" width="650" title="Infrastructure Diagram">
