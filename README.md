@@ -160,4 +160,8 @@ The environment variable sets the Mount Option type as sync or async. If the Env
 The option `sync` means that all changes to the according filesystem are immediately flushed to disk; the respective write operations are being waited for. In contrast, with `async` the system buffers the write operation and optimizes the actual writes; meanwhile, instead of being blocked the process in userland continues to run.
 
 
+## Usage
+
+After you clone this repo to your desktop, go to its root directory and run docker-compose up to launch the infrastructure
+
 >Source: LinuxWorld Informatics Pvt Ltd. Jaipur
