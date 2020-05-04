@@ -13,6 +13,11 @@
 2. Docker Engine 
 3. Docker-compose 
 
+### Technologies/Tools Used:
+ - NodeJS 10
+ - Angular 9.0
+ - Nginx v.18
+ - MongoDB Database v 4.2.2
 
 Project comprises of various components. They are as follows:
 1. Nginx Server
