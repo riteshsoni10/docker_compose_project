@@ -1,5 +1,5 @@
 # Docker Compose Project
-##### The Project Mainly Focuses on Infrastructure
+##### The Project Mainly Focuses on Infrastructure Automation
 
 <p align="center">
   <img src="/images/docker_compose_infra_final.jpg" width="650" title="Infrastructure Diagram">
@@ -117,7 +117,7 @@ volumes:
 ```
 
 Here,
-    `addr` is NFS Server IP. It can be NFS Server IP or NFS Server DNS name.
+    `addr` is NFS Server IP i.e 10.150.20.12 . It can be NFS Server IP or NFS Server DNS name.
     `device` is configured as /apps instead of /nfsshare/apps, in NFS version 4 due to setting of `fsuid=0` in exports file in NFS Server, the shared volume /nfsshare can be mounted as /.
     
 HealthCheck is configured to enable of NFS Server container to start and ready first before application containers.
@@ -152,4 +152,4 @@ The environment variable sets the Mount Option type as sync or async. If the Env
 The option `sync` means that all changes to the according filesystem are immediately flushed to disk; the respective write operations are being waited for. In contrast, with `async` the system buffers the write operation and optimizes the actual writes; meanwhile, instead of being blocked the process in userland continues to run.
 
 
->> Source: LinuxWorld Informatics Pvt Ltd. Jaipur
+>Source: LinuxWorld Informatics Pvt Ltd. Jaipur
