@@ -70,7 +70,7 @@ docker run -it --link mongo_db_server -p 8080:3000 --name application-1 riteshso
 
 MongoDB version 4.2.2 container image is used to launch the containers with some customisation fo the applications. The database server is launched  in seperate network to keep the data secure from the outside world.
 
-The database network is secured from outside internet access by initialising the internal paramter in networks.
+The database network is secured from outside internet access by initialising the `internal` paramter in networks.
 
 ```
 networks:
@@ -158,6 +158,14 @@ b. SYNC
 The environment variable sets the Mount Option type as sync or async. If the Environment variable is nt defined, the container sets the default mount option to aync.  
 
 The option `sync` means that all changes to the according filesystem are immediately flushed to disk; the respective write operations are being waited for. In contrast, with `async` the system buffers the write operation and optimizes the actual writes; meanwhile, instead of being blocked the process in userland continues to run.
+
+c. PERMITTED
+
+The environment variable sets the restriction based on the hosts for the Shared directories. If the variable is not initialised, by default shared directories will be accesible from every host i.e; *
+
+d. READ_ONLY
+
+The environment variable is used to set the shared directory as read_only. In absence of the variable, the default value i.e read and write permissions are enabled.
 
 
 ## Usage
