@@ -14,7 +14,7 @@
 3. Docker-compose 
 
 
-The project contains four different components:
+Project comprises of various components. They are as follows:
 1. Nginx Server
 2. Application Server
 3. Database Server
@@ -57,6 +57,9 @@ The `NodeJS sample project` is deployed in the containers, it returns the names 
 
 The containers depends on Mongo DB Database i.e mongo_db_server for GET API call to fetch details from the database and display the database entries. The code directory 
 
+```
+docker run -it --link mongo_db_server -p 8080:3000 --name application-1 riteshsoni296/nodejs_app:latest
+```
 
 #### Database Server
 
