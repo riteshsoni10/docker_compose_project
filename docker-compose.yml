@@ -110,7 +110,7 @@ networks:
 
     # internal secured Network for Applications 
     application_internal_network:
-	driver: bridge
+        driver: bridge
         internal: "true"
         driver_opts:
             com.docker.network.enable_ipv6: "false"
