@@ -128,9 +128,13 @@ volumes:
     
     mongo_db_data:
         driver: local
+        
+    mongo_cluster:
+        driver: local
 
     logs_nginx:
         driver: local
         
     nfs_storage:
         driver: local
+    
