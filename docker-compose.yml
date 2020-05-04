@@ -14,6 +14,7 @@ services:
             NGINX_PORT: "80"
             APPLICATION_SERVER_1: "nodejs_application_server_1"
             APPLICATION_SERVER_2: "nodejs_application_server_2"
+            APPLICATION_SERVER_PORT: "3000"
         volumes:
             - logs_nginx:/var/log/nginx
         networks:
@@ -27,8 +28,6 @@ services:
         volumes:
             - application_code:/usr/src/app
         restart: always
-        ports:
-            - "8080:3000"
         depends_on: 
             - mongo_db_server
         networks:
@@ -40,8 +39,6 @@ services:
         volumes:
             - application_code:/usr/src/app
         restart: always
-        ports:
-            - "8080:3000"
         depends_on: 
             - mongo_db_server
         networks:
@@ -77,8 +74,6 @@ services:
             MONGO_INITDB_USERNAME: appuser 
             MONGO_INITDB_PASSWORD: app123
             MONGO_INITDB_DATABASE: nodejsdemo
-        ports:
-            - "27017:27017"
         volumes:
             - mongo_db_data:/data/db
         networks:
