@@ -109,8 +109,8 @@ networks:
                 - subnet: "10.140.20.0/24"
 
     # internal secured Network for Applications 
-		application_internal_network:
-		    driver: bridge
+    application_internal_network:
+	driver: bridge
         internal: "true"
         driver_opts:
             com.docker.network.enable_ipv6: "false"
