@@ -65,7 +65,8 @@ services:
             interval: 60s
             timeout: 10s
             retries: 5
-
+            
+    # Mongo Database Server
     mongo_db_server:
         image: riteshsoni296/mongo_server:latest
         environment:
@@ -76,11 +77,12 @@ services:
             MONGO_INITDB_DATABASE: nodejsdemo
         volumes:
             - mongo_db_data:/data/db
+            - mongo_cluster:/data/configdb
         networks:
             - database_internal_network
             - application_internal_network
 
-
+# Network Definitions
 networks:
     database_internal_network:
         driver: bridge
@@ -114,6 +116,7 @@ networks:
             config:
                 - subnet: "10.150.20.0/24"
 
+#Storage Volumes Definitions
 volumes:
     # Volume for Java Application Code
     application_code:
