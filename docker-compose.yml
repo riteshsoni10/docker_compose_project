@@ -5,8 +5,8 @@ services:
     nginx_server:
         image: riteshsoni296/nginx_server:latest
         depends_on:
-            - tomcat_application_1
-            - tomcat_application_2
+            - nodejs_application_server_1
+            - nodejs_application_server_2
         restart: always
         ports:
             - "80:80"
