@@ -170,7 +170,7 @@ d. READ_ONLY
 The environment variable is used to set the shared directory as read_only. In absence of the variable, the default value i.e read and write permissions are enabled.
 
 
-## ScreenShots
+### ScreenShots
 
 **1. Initiating Infrastructure setup**
 
