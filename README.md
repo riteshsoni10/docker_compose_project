@@ -1,11 +1,12 @@
-<h1 style="text-align:center;">Docker Compose Project
-</h1>
+# Docker Compose Project
+
+
 ##### The Project Mainly Focuses on Infrastructure Automation
 
 <p align="center">
   <img src="/images/docker_compose_infra_final.jpg" width="650" title="Infrastructure Diagram">
   <br>
-  <em>Fig.: Project Infrastructure Diagram </em>
+  <em>Fig 1.: Project Infrastructure Diagram </em>
 </p>
 
 
@@ -170,6 +171,31 @@ The environment variable is used to set the shared directory as read_only. In ab
 
 
 ## ScreenShots
+
+1. Initiating Infrastructure setup
+
+<p align="center">
+  <img src="screenshots/docker_compose_startup.png" width="950" title="Docker Compose Startup Diagram">
+  <br>
+  <em>Fig 2.: Docker Compose Startup Diagram </em>
+</p>
+
+2. Mongo Database Server Launch
+
+<p align="center">
+  <img src="screenshots/mongo_db_nfs_server.png" width="950" title="Database Initialisation Diagram">
+  <br>
+  <em>Fig 3.: Mongo Database Initialisation Diagram </em>
+</p>
+
+3. NFS Server, Application Servers and Nginx Server Startup
+
+<p align="center">
+  <img src="screenshots/nfs_server_nodejs_application_screenshot.png" width="950" title="Servers Initialisation Diagram">
+  <br>
+  <em>Fig 3.: NFS Server, Application Server and Nginx Server Initialisation Diagram </em>
+</p>
+
 
 
 >Source: LinuxWorld Informatics Pvt Ltd. Jaipur
