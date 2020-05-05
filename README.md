@@ -1,4 +1,5 @@
-# Docker Compose Project
+<h1 style="text-align:center;">Docker Compose Project
+</h1>
 ##### The Project Mainly Focuses on Infrastructure Automation
 
 <p align="center">
