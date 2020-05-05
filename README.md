@@ -172,7 +172,7 @@ The environment variable is used to set the shared directory as read_only. In ab
 
 ## ScreenShots
 
-1. Initiating Infrastructure setup
+**1. Initiating Infrastructure setup**
 
 <p align="center">
   <img src="screenshots/docker_compose_startup.png" width="950" title="Docker Compose Startup Diagram">
@@ -180,7 +180,7 @@ The environment variable is used to set the shared directory as read_only. In ab
   <em>Fig 2.: Docker Compose Startup Diagram </em>
 </p>
 
-2. Mongo Database Server Launch
+**2. Mongo Database Server Launch**
 
 <p align="center">
   <img src="screenshots/mongo_db_nfs_server.png" width="950" title="Database Initialisation Diagram">
@@ -188,12 +188,12 @@ The environment variable is used to set the shared directory as read_only. In ab
   <em>Fig 3.: Mongo Database Initialisation Diagram </em>
 </p>
 
-3. NFS Server, Application Servers and Nginx Server Startup
+**3. NFS Server, Application Servers and Nginx Server Startup**
 
 <p align="center">
   <img src="screenshots/nfs_server_nodejs_application_screenshot.png" width="950" title="Servers Initialisation Diagram">
   <br>
-  <em>Fig 3.: NFS Server, Application Server and Nginx Server Initialisation Diagram </em>
+  <em>Fig 4.: NFS Server, Application Server and Nginx Server Initialisation Diagram </em>
 </p>
 
 
