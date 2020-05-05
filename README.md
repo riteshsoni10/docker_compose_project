@@ -168,8 +168,7 @@ d. READ_ONLY
 The environment variable is used to set the shared directory as read_only. In absence of the variable, the default value i.e read and write permissions are enabled.
 
 
-## Usage
+## ScreenShots
 
-After you clone this repo to your desktop, go to its root directory and run docker-compose up to launch the infrastructure
 
 >Source: LinuxWorld Informatics Pvt Ltd. Jaipur
