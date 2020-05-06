@@ -275,12 +275,12 @@ docker-compose up -d
   <em>Fig 7.: Create New Employee </em>
 </p>
 
-**4. Saved Employee Details **
+**4. Saved Employee Details**
 
 <p align="center">
   <img src="screenshots/employee_details.png" width="350" title="Saved Employee Data">
   <br>
-  <em>Fig 8.: Employee Deatails </em>
+  <em>Fig 8.: Employee Details </em>
 </p>
 
 **5. New list of employees**
