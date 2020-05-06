@@ -1,5 +1,5 @@
 # Docker Compose Project - NodeJs Application
-[![nginx](https://img.shields.io/badge/nginx-v.alpine-green.svg)](https://hub.docker.com/_/nginx) [![docker](https://img.shields.io/badge/version-v18.0.9-blue.svg)](https://docs.docker.com/engine/install/centos/)
+[![nginx](https://img.shields.io/badge/nginx-v.alpine-green.svg)](https://hub.docker.com/_/nginx) [![docker](https://img.shields.io/badge/docker-v18.0.9-blue.svg)](https://docs.docker.com/engine/install/centos/) ![npm version](https://img.shields.io/npm/v/standard-version.svg)](https://www.npmjs.com/package/standard-version) ![nfs_server](https://img.shields.io/badge/nfs-v1.0.9-1f425f.svg)](https://docs.docker.com/engine/install/centos/) ![mongo_database](https://img.shields.io/badge/mongo-latest-green.svg)](https://docs.docker.com/engine/install/centos/)
 
 ##### The Project Mainly Focuses on Infrastructure Automation
 
