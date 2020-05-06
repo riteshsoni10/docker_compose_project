@@ -22,7 +22,7 @@
  - MongoDB Database v 4.2.2
 
 Infrastructure comprises of various components. They are as follows:
-1. [Nginx Server](#Nginx Server)
+1. [Nginx Server](#nginx-server)
 2. Application Server
 3. Database Server
 4. NFS Server
