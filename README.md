@@ -1,4 +1,4 @@
-# Docker Compose Project
+# Docker Compose Project - NodeJs Application
 
 
 ##### The Project Mainly Focuses on Infrastructure Automation
@@ -21,8 +21,8 @@
  - Nginx v.18
  - MongoDB Database v 4.2.2
 
-Project comprises of various components. They are as follows:
-1. Nginx Server
+Infrastructure comprises of various components. They are as follows:
+1. [Nginx Server](#Nginx Server)
 2. Application Server
 3. Database Server
 4. NFS Server
