@@ -254,41 +254,33 @@ docker-compose up -d
 **1. Initial Welcome Page**
 
 <p align="center">
-  <img src="screenshots/welcome_page.png" width="350" title="Welcome Page">
+  <img src="screenshots/welcome_page.png" width="450" title="Welcome Page">
   <br>
   <em>Fig 5.: Application Welcome Page </em>
 </p>
 
-**2. Initially list of employees**
-
-<p align="center">
-  <img src="screenshots/list_of_employees.png" width="350" title="Initial List of Employees">
-  <br>
-  <em>Fig 6.: Initial Employees List </em>
-</p>
-
-**3. Create a New Entry**
+**2. Create a New Entry**
 
 <p align="center">
   <img src="screenshots/create_new_employee.png" width="350" title="New Employee ">
   <br>
-  <em>Fig 7.: Create New Employee </em>
+  <em>Fig 6.: Create New Employee </em>
 </p>
 
-**4. Saved Employee Details**
+**3. Saved Employee Details**
 
 <p align="center">
   <img src="screenshots/employee_details.png" width="350" title="Saved Employee Data">
   <br>
-  <em>Fig 8.: Employee Details </em>
+  <em>Fig 7.: Employee Details </em>
 </p>
 
-**5. New list of employees**
+**4. New List of Employees**
 
 <p align="center">
   <img src="screenshots/after_addition_employees.png" width="350" title="New List of Employees">
   <br>
-  <em>Fig 9.: After Creation of Employees </em>
+  <em>Fig 8.: After Creation of Employees </em>
 </p>
 
 
