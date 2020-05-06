@@ -209,7 +209,7 @@ The environment variable is used to set the shared directory as read_only. In ab
 </p>
 
 
-### Usage
+### Implementation Steps
 
 Follow the below steps to successfuly configure the automation of Project:
 
