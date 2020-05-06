@@ -74,7 +74,7 @@ The containers depends on Mongo DB Database i.e mongo_db_server for API calls to
 docker run -it --link mongo_db_server -p 3000:3000 --name application-1 riteshsoni296/nodejs_app:latest
 ```
 
-Port Number 3000 is exposed for applocation connectivity. Since the application servers are internal, they cannot be accessed from outside network except the proxy servers i.e Nginx. The working Source Code Directory in the Application server is `/usr/src/app`.
+Port Number 3000 is exposed for applocation connectivity. Since the application servers are internal, they cannot be accessed from outside network except the proxy servers i.e Nginx. The `working Source Code Directory` in the Application server is `/usr/src/app`.
 
 
 
@@ -254,7 +254,7 @@ docker-compose up -d
 **1. Initial Welcome Page**
 
 <p align="center">
-  <img src="screenshots/welcome_page.png" width="950" title="Welcome Page">
+  <img src="screenshots/welcome_page.png" width="350" title="Welcome Page">
   <br>
   <em>Fig 5.: Application Welcome Page </em>
 </p>
@@ -262,7 +262,7 @@ docker-compose up -d
 **2. Initially list of employees**
 
 <p align="center">
-  <img src="screenshots/list_of_employees.png" width="950" title="Initial List of Employees">
+  <img src="screenshots/list_of_employees.png" width="350" title="Initial List of Employees">
   <br>
   <em>Fig 6.: Initial Employees List </em>
 </p>
@@ -270,7 +270,7 @@ docker-compose up -d
 **3. Create a New Entry**
 
 <p align="center">
-  <img src="screenshots/create_new_employee.png" width="950" title="New Employee ">
+  <img src="screenshots/create_new_employee.png" width="350" title="New Employee ">
   <br>
   <em>Fig 7.: Create New Employee </em>
 </p>
@@ -278,7 +278,7 @@ docker-compose up -d
 **4. Saved Employee Details **
 
 <p align="center">
-  <img src="screenshots/employee_details.png" width="950" title="Saved Employee Data">
+  <img src="screenshots/employee_details.png" width="350" title="Saved Employee Data">
   <br>
   <em>Fig 8.: Employee Deatails </em>
 </p>
@@ -286,7 +286,7 @@ docker-compose up -d
 **5. New list of employees**
 
 <p align="center">
-  <img src="screenshots/after_addition_employees.png" width="950" title="New List of Employees">
+  <img src="screenshots/after_addition_employees.png" width="350" title="New List of Employees">
   <br>
   <em>Fig 9.: After Creation of Employees </em>
 </p>
