@@ -23,9 +23,9 @@
 
 Infrastructure comprises of various components. They are as follows:
 1. [Nginx Server](#nginx-server)
-2. Application Server
-3. Database Server
-4. NFS Server
+2. [Application Server](#application-server--nodejs)
+3. [Database Server](#database-server--mongo-database)
+4. [NFS Server](#nfs-server)
 
 The each component in the project has its own purpose. 
 
@@ -33,7 +33,7 @@ The each component in the project has its own purpose.
 
 The Nginx Server is used to distribute the load equally  among the Application Servers. The nginx_server container is configured to receive the traffic from external world. The nginx_server container is deployed in seperate network.The container is launched with two network interfaces i.e.; application_external_network and application_internal_network.
 
-Sample docker command
+Docker command
 ```
 docker run -dit -p 80:80 -e NGINX_PORT=80 \
 -e APPLICATION_SERVER=nodejs_application_server_1 \
@@ -44,15 +44,15 @@ riteshsoni296/nginx_server:latest
 
 `--link` option is used for internal connectivity between the nginx container and application containers based on the container name
 
-The `Environment` Variables that are required are as follows:
+The `Environment` Variables defined are as follows:
 
-a. NGINX_PORT:
+*a. NGINX_PORT:*
     The port on which the nginx_server container to be running, for example 80 or 8080.
 
  > **Note:**
  > SSL configuration is not yet completed in nginx_server docker image
 
-b. APPLICATION_SERVER_1 and APPLICATION_SERVER_2
+*b. APPLICATION_SERVER_1 and APPLICATION_SERVER_2*
   The container name of the aplication_server container hosting the nodejs application 
 
 The logs are stored in seperate volume named `logs_nginx` to preserve the logs even when the container is deleted or corrupted for debugging any issue in application. 
@@ -74,7 +74,7 @@ The containers depends on Mongo DB Database i.e mongo_db_server for API calls to
 docker run -it --link mongo_db_server -p 3000:3000 --name application-1 riteshsoni296/nodejs_app:latest
 ```
 
-Port Number 3000 is exposed for applocation connectivity. Since the application servers are internal, they cannot be accessed from outside network except the proxy servers i.e Nginx. The `working Source Code Directory` in the Application server is `/usr/src/app`.
+Port Number 3000 is exposed for applocation connectivity. Since the application servers are internal, they cannot be accessed from outside network except the proxy servers i.e Nginx. The `Source Code Directory` for the Application server is `/usr/src/app`.
 
 
 
@@ -97,28 +97,28 @@ networks:
                 - subnet: "10.120.20.0/24"
 ```
 
-The `Environment` variables that are passed i.e:
+The `Environment` variables defined are as follows:
 
-a. MONGO_INITDB_ROOT_USERNAME:
+*a. MONGO_INITDB_ROOT_USERNAME:*
 
-        It is used to define the root account user name in database server
+        It is used to define the root account username in database server
 
-b. MONGO_INITDB_ROOT_PASSWORD: 
+*b. MONGO_INITDB_ROOT_PASSWORD:* 
 
-        Password for the root account
+        The variable used to define the password for the root account
 
 c. MONGO_INITDB_USERNAME: 
 
-        Application account user_name
+        The variable is used to define database user account for the application server connectivity
 
 d. MONGO_INITDB_PASSWORD: 
 
-        Application User Account password
+        The variable defines the password for database user for the application server connectivity
 
 e. MONGO_INITDB_DATABASE: 
 
-        Application Database
-
+        The variable defines the database used in application
+        
 The Database stores the Data in seperate volume to have persistent storage, in case server creashes due to unavoidabale circumstances.
         
 #### NFS Server
@@ -142,7 +142,7 @@ Here,
     `addr` is NFS Server IP i.e 10.150.20.12 . It can be NFS Server IP or NFS Server DNS name.
     `device` is configured as /apps instead of /nfsshare/apps, in NFS version 4 due to setting of `fsuid=0` in exports file in NFS Server, the shared volume /nfsshare can be mounted as /.
     
-HealthCheck is configured to enable of NFS Server container to start and ready first before application containers.
+**HealthCheck** is configured to enable of NFS Server container to start and ready first before application containers.
 
 ```
     healthcheck:
@@ -161,23 +161,23 @@ The NFS Server is executed as root user to run some priviledged commands i.e mou
         privileged: "true"
 ```
     
-The `Environment` variables that are to be passed i.e:
+The `Environment` variables defined are as follows:
 
-a. SHARED_DIRECTORY and SHARED_DIRECTORY_2
+*a. SHARED_DIRECTORY and SHARED_DIRECTORY_2*
 
 The dicrectories that are mounted in application containers to store the application code in one volume rather than having multiple copies of the same code in different containers.
 
-b. SYNC
+*b. SYNC*
 
 The environment variable sets the Mount Option type as sync or async. If the Environment variable is nt defined, the container sets the default mount option to aync.  
 
 The option `sync` means that all changes to the according filesystem are immediately flushed to disk; the respective write operations are being waited for. In contrast, with `async` the system buffers the write operation and optimizes the actual writes; meanwhile, instead of being blocked the process in userland continues to run.
 
-c. PERMITTED
+*c. PERMITTED*
 
 The environment variable sets the restriction based on the hosts for the Shared directories. If the variable is not initialised, by default shared directories will be accesible from every host i.e; *
 
-d. READ_ONLY
+*d. READ_ONLY*
 
 The environment variable is used to set the shared directory as read_only. In absence of the variable, the default value i.e read and write permissions are enabled.
 
@@ -223,7 +223,7 @@ There are two ways to mount the code inside both the application_servers:
       ```
       mkdir /nfs
       ```
-   In the docker-compose.yml file, **replace*** *nfs_storage* variable wth */nfs* in volumes option in `nfs_server`.
+   In the docker-compose.yml file, **replace** *nfs_storage* variable wth */nfs* in volumes option in `nfs_server`.
    ```
    volumes:
      - /nfs:/nfsshare
@@ -287,6 +287,6 @@ docker-compose up -d
 
 > **Source**: LinuxWorld Informatics Pvt Ltd. Jaipur
 >
-> **Under Guidance of** : [Vimal Daga](https://in.linkedin.com/in/vimaldaga)
+> **Under the Guidance of** : [Vimal Daga](https://in.linkedin.com/in/vimaldaga)
 >
 > **Initiative**: [IIEC-RISE](https://www.facebook.com/IIECconnect/posts/iiec-rise-10-initiative-by-mr-vimal-daga-httpsinlinkedincominvimaldaga-gaining-p/648800079186836/)
