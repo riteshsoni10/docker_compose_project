@@ -1,5 +1,5 @@
 # Docker Compose Project - NodeJs Application
-[![nginx](https://img.shields.io/badge/nginx-v.alpine-green.svg)](https://hub.docker.com/_/nginx) [![docker](https://img.shields.io/badge/docker-v18.0.9-blue.svg)](https://docs.docker.com/engine/install/centos/) [![npm version](https://img.shields.io/npm/v/standard-version.svg)](https://www.npmjs.com/package/standard-version) [![nfs_server](https://img.shields.io/badge/nfs-v1.0.9-1f425f.svg)] [![mongo_database](https://img.shields.io/badge/mongo-latest-green.svg)]
+[![nginx](https://img.shields.io/badge/nginx-v.alpine-green.svg)](https://hub.docker.com/_/nginx) [![docker](https://img.shields.io/badge/docker-v18.0.9-blue.svg)](https://docs.docker.com/engine/install/centos/) [![npm version](https://img.shields.io/npm/v/standard-version.svg)](https://www.npmjs.com/package/standard-version) [![nfs_server](https://img.shields.io/badge/nfs-v1.0.9-1f425f.svg)](https://www.npmjs.com/package/standard-version) [![mongo_database](https://img.shields.io/badge/mongo-latest-brightgreen.svg)](https://hub.docker.com/_/mongo)
 
 ##### The Project Mainly Focuses on Infrastructure Automation
 
@@ -16,10 +16,10 @@
 3. Docker-compose 
 
 ### Technologies/Tools Used:
- - NodeJS v14
- - Angular v9.0
+ - NodeJS 
+ - Angular 
  - Nginx 
- - MongoDB Database v 4.2.2
+ - MongoDB Database 
 
 Infrastructure comprises of various components. They are as follows:
 1. [Nginx Server](#nginx-server)
