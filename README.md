@@ -1,5 +1,5 @@
 # Docker Compose Project - NodeJs Application
-[![nginx](https://img.shields.io/badge/version-v.alpine-green.svg)](https://hub.docker.com/_/nginx) [![docker](https://img.shields.io/badge/version-v18.0.9-blue.svg)](https://docs.docker.com/engine/install/centos/)
+[![nginx](https://img.shields.io/nginx/v/version-v.alpine-green.svg)](https://hub.docker.com/_/nginx) [![docker](https://img.shields.io/docker/v/version-v18.0.9-blue.svg)](https://docs.docker.com/engine/install/centos/)
 
 ##### The Project Mainly Focuses on Infrastructure Automation
 
