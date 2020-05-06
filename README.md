@@ -29,7 +29,7 @@ Infrastructure comprises of various components. They are as follows:
 
 The each component in the project has its own purpose. 
 
-#### Nginx Server [![Version]("10.4")]
+#### Nginx Server[![version](https://img.shields.io/badge/version-1.0.1-yellow.svg)](https://semver.org)
 
 The Nginx Server is used to distribute the load equally  among the Application Servers. The nginx_server container is configured to receive the traffic from external world. The nginx_server container is deployed in seperate network.The container is launched with two network interfaces i.e.; application_external_network and application_internal_network.
 
