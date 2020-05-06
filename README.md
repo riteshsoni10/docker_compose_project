@@ -29,9 +29,10 @@ Infrastructure comprises of various components. They are as follows:
 
 The each component in the project has its own purpose. 
 
+
 #### Nginx Server 
 
-The Nginx Server is used to distribute the load equally  among the Application Servers. The nginx_server container is configured to receive the traffic from external world. The nginx_server container is deployed in seperate network.The container is launched with two network interfaces i.e.; application_external_network and application_internal_network.
+The Nginx Server is used to distribute the load equally  among the Application Servers. The nginx_server container is configured to receive the traffic from external world. The nginx_server container is deployed in seperate network.The container is launched with two network interfaces i.e.; application_external_network and application_internal_network to enable connectivity from outside world and with the node_js_application containers.
 
 Docker command
 ```
@@ -64,18 +65,22 @@ docker run -it -v nginx.conf:/etc/nginx/conf.d/application.conf --name nginx_ser
                                                   riteshsoni296/nginx_server:latest
 ```
 
+
 #### Application Server : NodeJs
 
-The code to be deployed in application server is just a sample project. The project performs CRUD operations using GET and POST APIs in the mongodb Server. The nodejs application code lists the employees details with their current salary. The more employee details can be added using `Create Employees` button. The nodejs_application_server_1 and nodejs_application_server_2 are attached with two different network interfaces i.e the database network(database_internal_network) and application internal network(application_internal_network).
+The code to be deployed in application server is just a sample project. The project performs CRUD operations using GET and POST APIs in the mongodb Server. The nodejs application code lists the employees details with their current salary. The more employee details can be added using `Create Employees` button. The nodejs_application_server_1 and nodejs_application_server_2 are attached with two different network interfaces i.e the database network(database_internal_network) and application internal network(application_internal_network) 
 
-The containers depends on Mongo DB Database i.e mongo_db_server for API calls to fetch and save details to and from the database and display the entries. The code directory 
+The containers depends on Mongo DB Database i.e mongo_db_server for API calls to fetch and save details to and from the database and display the entries. 
+
+The code directory for the application servers is mounted from the NFS shared volume. It is used enhance the deployment process of code into the application servers.
 
 ```
 docker run -it --link mongo_db_server -p 3000:3000 --name application-1 riteshsoni296/nodejs_app:latest
 ```
 
-Port Number 3000 is exposed for applocation connectivity. Since the application servers are internal, they cannot be accessed from outside network except the proxy servers i.e Nginx. The `Source Code Directory` for the Application server is `/usr/src/app`.
+Port Number 3000 is exposed for applocation connectivity. Since the application servers are internal, they cannot be accessed from outside network except the proxy servers i.e Nginx. 
 
+The `Source Code Directory` for the Application server is `/usr/src/app`.
 
 
 #### Database Server : Mongo Database 
@@ -120,7 +125,8 @@ e. MONGO_INITDB_DATABASE:
         The variable defines the database used in application
         
 The Database stores the Data in seperate volume to have persistent storage, in case server creashes due to unavoidabale circumstances.
-        
+      
+      
 #### NFS Server
 
 The NFS Server storage is used to share the /apps volume or application_code volume with application containers.
@@ -246,8 +252,6 @@ docker-compose up -d
    
 4. Services should be up now. 
 
-
-  
   
 ### Application ScreenShots
 
@@ -282,6 +286,7 @@ docker-compose up -d
   <br>
   <em>Fig 8.: After Creation of Employees </em>
 </p>
+
 
 
 
