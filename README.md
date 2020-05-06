@@ -1,5 +1,5 @@
 # Docker Compose Project - NodeJs Application
-
+[![nginx](https://img.shields.io/badge/version-v.alpine-green.svg)](https://hub.docker.com/_/nginx) [![docker](https://img.shields.io/badge/version-v18.0.9-blue.svg)](https://docs.docker.com/engine/install/centos/)
 
 ##### The Project Mainly Focuses on Infrastructure Automation
 
@@ -29,7 +29,7 @@ Infrastructure comprises of various components. They are as follows:
 
 The each component in the project has its own purpose. 
 
-#### Nginx Server [![version](https://img.shields.io/badge/version-alpine-yellow.svg)](https://semver.org)
+#### Nginx Server 
 
 The Nginx Server is used to distribute the load equally  among the Application Servers. The nginx_server container is configured to receive the traffic from external world. The nginx_server container is deployed in seperate network.The container is launched with two network interfaces i.e.; application_external_network and application_internal_network.
 
