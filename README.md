@@ -1,5 +1,5 @@
 # Docker Compose Project - NodeJs Application
-[![nginx](https://img.shields.io/badge/nginx-v.alpine-green.svg)](https://hub.docker.com/_/nginx) [![docker](https://img.shields.io/badge/docker-v18.0.9-blue.svg)](https://docs.docker.com/engine/install/centos/) [![npm version](https://img.shields.io/npm/v/standard-version.svg)](https://www.npmjs.com/package/standard-version) [![nfs_server](https://img.shields.io/badge/nfs-v4-1f425f.svg)](https://pkgs.org/download/nfs-utils) [![mongo_database](https://img.shields.io/badge/mongo-latest-brightgreen.svg)](https://hub.docker.com/_/mongo)
+[![nginx](https://img.shields.io/badge/nginx-alpine-green.svg)](https://hub.docker.com/_/nginx) [![docker](https://img.shields.io/badge/docker-v18.0.9-blue.svg)](https://docs.docker.com/engine/install/centos/) [![npm version](https://img.shields.io/npm/v/standard-version.svg)](https://www.npmjs.com/package/standard-version) [![nfs_server](https://img.shields.io/badge/nfs-v4-1f425f.svg)](https://pkgs.org/download/nfs-utils) [![mongo_database](https://img.shields.io/badge/mongo-latest-brightgreen.svg)](https://hub.docker.com/_/mongo)
 
 ##### The Project Mainly Focuses on Infrastructure Automation
 
@@ -48,12 +48,14 @@ riteshsoni296/nginx_server:latest
 The `Environment` Variables defined are as follows:
 
 *a. NGINX_PORT:*
+
     The port on which the nginx_server container to be running, for example 80 or 8080.
 
  > **Note:**
  > SSL configuration is not yet completed in nginx_server docker image
 
 *b. APPLICATION_SERVER_1 and APPLICATION_SERVER_2*
+
   The container name of the aplication_server container hosting the nodejs application 
 
 The logs are stored in seperate volume named `logs_nginx` to preserve the logs even when the container is deleted or corrupted for debugging any issue in application. 
@@ -112,15 +114,15 @@ The `Environment` variables defined are as follows:
 
         The variable used to define the password for the root account
 
-c. MONGO_INITDB_USERNAME: 
+*c. MONGO_INITDB_USERNAME:* 
 
         The variable is used to define database user account for the application server connectivity
 
-d. MONGO_INITDB_PASSWORD: 
+*d. MONGO_INITDB_PASSWORD:* 
 
         The variable defines the password for database user for the application server connectivity
 
-e. MONGO_INITDB_DATABASE: 
+*e. MONGO_INITDB_DATABASE:* 
 
         The variable defines the database used in application
         
@@ -234,13 +236,15 @@ There are two ways to mount the code inside both the application_servers:
    volumes:
      - /nfs:/nfsshare
    ```
-   Copy the code in /nfs directory.
- 
+   
+   Deploy the code inside /nfs/apps directory.
+   
  - Find out the mount-point of the nfs_storage volume using docker volume management command
    ```
     docker volume inspect $(docker volume ls | grep nfs_storage | awk '{print $2}')   
    ```
-   Copy the code inside the mount point to share the application code among application_containers.
+   
+   Copy the code inside the mount point  to share the application code among application_containers.
    
 3. Execute the docker-compose command
 
