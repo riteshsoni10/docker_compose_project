@@ -16,7 +16,7 @@
 3. Docker-compose 
 
 ### Technologies/Tools Used:
- - NodeJS 10
+ - NodeJS 14
  - Angular 9.0
  - Nginx v.18
  - MongoDB Database v 4.2.2
@@ -57,18 +57,27 @@ b. APPLICATION_SERVER_1 and APPLICATION_SERVER_2
 
 The logs are stored in seperate volume named `logs_nginx` to preserve the logs even when the container is deleted or corrupted for debugging any issue in application. 
 
+The `Configuration File` is stored at location `/etc/nginx/conf.d/application.conf`. The user customized configuration file can be mounted 
 
-#### Application Server
+```sh
+docker run -it -v nginx.conf:/etc/nginx/conf.d/application.conf\
+ --name nginx_server riteshsoni296/nginx_server:latest
+```
 
-The `NodeJS sample project` is deployed in the containers, it returns the names of persons stored in the mongodb Server. The nodejs_application_server_1 and nodejs_application_server_2 are attached with two network interfaces i.e the database network(database_internal_network) and application internal network(application_internal_network).
+#### Application Server : NodeJs
 
-The containers depends on Mongo DB Database i.e mongo_db_server for GET API call to fetch details from the database and display the database entries. The code directory 
+The code to be deployed in application server is just a sample project. The project performs CRUD operations using GET and POST APIs in the mongodb Server. The nodejs application code lists the employees details with their current salary. The more employee details can be added using `Create Employees` button. The nodejs_application_server_1 and nodejs_application_server_2 are attached with two different network interfaces i.e the database network(database_internal_network) and application internal network(application_internal_network).
+
+The containers depends on Mongo DB Database i.e mongo_db_server for API calls to fetch and save details to and from the database and display the entries. The code directory 
 
 ```
 docker run -it --link mongo_db_server -p 8080:3000 --name application-1 riteshsoni296/nodejs_app:latest
 ```
 
-#### Database Server
+Port Number 3000 is exposed for applocation connectivity. Since the application servers are internal, they cannot be accessed from outside network except the proxy servers i.e Nginx.
+
+
+#### Database Server : Mongo Database 
 
 MongoDB version 4.2.2 container image is used to launch the containers with some customisation fo the applications. The database server is launched  in seperate network to keep the data secure from the outside world.
 
