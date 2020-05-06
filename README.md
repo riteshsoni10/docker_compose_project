@@ -60,8 +60,8 @@ The logs are stored in seperate volume named `logs_nginx` to preserve the logs e
 The `Configuration File` is stored at location `/etc/nginx/conf.d/application.conf`. The user customized configuration file can be mounted 
 
 ```sh
-docker run -it -v nginx.conf:/etc/nginx/conf.d/application.conf\
- --name nginx_server riteshsoni296/nginx_server:latest
+docker run -it -v nginx.conf:/etc/nginx/conf.d/application.conf --name nginx_server \
+                                                  riteshsoni296/nginx_server:latest
 ```
 
 #### Application Server : NodeJs
@@ -71,10 +71,11 @@ The code to be deployed in application server is just a sample project. The proj
 The containers depends on Mongo DB Database i.e mongo_db_server for API calls to fetch and save details to and from the database and display the entries. The code directory 
 
 ```
-docker run -it --link mongo_db_server -p 8080:3000 --name application-1 riteshsoni296/nodejs_app:latest
+docker run -it --link mongo_db_server -p 3000:3000 --name application-1 riteshsoni296/nodejs_app:latest
 ```
 
-Port Number 3000 is exposed for applocation connectivity. Since the application servers are internal, they cannot be accessed from outside network except the proxy servers i.e Nginx.
+Port Number 3000 is exposed for applocation connectivity. Since the application servers are internal, they cannot be accessed from outside network except the proxy servers i.e Nginx. The working Source Code Directory in the Application server is `/usr/src/app`.
+
 
 
 #### Database Server : Mongo Database 
@@ -117,6 +118,8 @@ d. MONGO_INITDB_PASSWORD:
 e. MONGO_INITDB_DATABASE: 
 
         Application Database
+
+The Database stores the Data in seperate volume to have persistent storage, in case server creashes due to unavoidabale circumstances.
         
 #### NFS Server
 
@@ -179,7 +182,7 @@ d. READ_ONLY
 The environment variable is used to set the shared directory as read_only. In absence of the variable, the default value i.e read and write permissions are enabled.
 
 
-### ScreenShots
+### Infrastructure Initialisation
 
 **1. Initiating Infrastructure setup**
 
@@ -206,5 +209,45 @@ The environment variable is used to set the shared directory as read_only. In ab
 </p>
 
 
+### Usage
+
+Follow the below steps to successfuly configure the automation of Project:
+
+1. *Clone* master branch of the repository
+
+2. *Copy* the files inside `source_code` directory in NFS mounted directory.
+
+There are two ways to mount the code inside both the application_servers:
+
+ - Make a seperate directory named NFS i.e 
+      ```
+      mkdir /nfs
+      ```
+   In the docker-compose.yml file, **replace*** *nfs_storage* variable wth */nfs* in volumes option in `nfs_server`.
+   ```
+   volumes:
+     - /nfs:/nfsshare
+   ```
+   Copy the code in /nfs directory.
+ 
+ - Find out the mount-point of the nfs_storage volume using docker volume management command
+   ```
+    docker volume inspect $(docker volume ls | grep nfs_storage | awk '{print $2}')   
+   ```
+   Copy the code inside the mount point to share the application code among application_containers.
+   
+3. Execute the docker-compose command
+
+```
+docker-compose up -d
+```
+
+*-d* parameter to run the containers in the background.
+   
+4. Services should be up now. 
+
+
+  
+  
 
 >Source: LinuxWorld Informatics Pvt Ltd. Jaipur
