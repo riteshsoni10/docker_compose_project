@@ -1,5 +1,5 @@
 # Docker Compose Project - NodeJs Application
-[![nginx](https://img.shields.io/badge/nginx-alpine-green.svg)](https://hub.docker.com/_/nginx) [![docker](https://img.shields.io/badge/docker-v18.0.9-blue.svg)](https://docs.docker.com/engine/install/centos/) [![npm version](https://img.shields.io/npm/v/standard-version.svg)](https://www.npmjs.com/package/standard-version) [![nfs_server](https://img.shields.io/badge/nfs-v4-1f425f.svg)](https://pkgs.org/download/nfs-utils) [![mongo_database](https://img.shields.io/badge/mongo-latest-brightgreen.svg)](https://hub.docker.com/_/mongo)
+[![nginx](https://img.shields.io/badge/nginx-alpine-green.svg)](https://hub.docker.com/_/nginx) [![docker](https://img.shields.io/badge/docker-v18.0.9-blue.svg)](https://docs.docker.com/engine/install/centos/) [![npm version](https://img.shields.io/badge/npm-v6.13-blue.svg)](https://www.npmjs.com/package/standard-version) [![nfs_server](https://img.shields.io/badge/nfs-v4-1f425f.svg)](https://pkgs.org/download/nfs-utils) [![mongo_database](https://img.shields.io/badge/mongo-latest-brightgreen.svg)](https://hub.docker.com/_/mongo)
 
 ##### The Project Mainly Focuses on Infrastructure Automation
 
