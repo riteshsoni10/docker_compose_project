@@ -1,18 +1,19 @@
 {
-  "name": "node-crud",
+  "name": "demo-node-project",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "~1.16.0",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.0",
-    "ejs": "~2.5.5",
-    "express": "~4.14.1",
-    "mongoose": "^4.8.4",
-    "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.2"
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "mongoose": "^5.9.13",
+    "morgan": "~1.9.1",
+    "serve-favicon": "^2.5.0"
   }
 }
