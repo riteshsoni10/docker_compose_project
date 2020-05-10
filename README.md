@@ -246,6 +246,9 @@ There are two ways to mount the code inside both the application_servers:
    
    Copy the code inside the mount point  to share the application code among application_containers.
    
+   > Note:
+   >
+   > The application server containers won't boot up until the code deployment is successful
 3. Execute the docker-compose command
 
 ```
