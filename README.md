@@ -11,7 +11,7 @@
 
 
 ### Pre-requisites:
-1. OS: Redhat Enterprise  Linix 8 or Centos8
+1. OS: Redhat Enterprise  Linux 8 or Centos8
 2. Docker Engine 
 3. Docker-compose 
 
